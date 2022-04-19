@@ -4,17 +4,18 @@ namespace WarehouseManagementSystem.Business
 {
     public class OrderProcessor
     {
+        public delegate void OrderInitialized();
+
+        public OrderInitialized OnOrderInitialized { get; set; }
+
         private void Initialize(Order order)
         {
+            ArgumentNullException.ThrowIfNull(order);
         }
 
         public void Process(Order order)
         {
-            // Run some code..
-
             Initialize(order);
-
-            // How do I produce a shipping label?
         }
     }
 }
